@@ -6,7 +6,8 @@ import Home from './assets/components/Home/Home';
 import About from './assets/components/About/About';
 import Contact from './assets/components/Contact/Contact';
 import User from './assets/components/User/User';
-import Github , {githubInfoLoader} from './assets/components/Github/Github';
+import Github, { githubInfoLoader } from './assets/components/Github/Github';
+import Aboutmore from './assets/components/Aboutmore/Aboutmore';
 
 // const router = createBrowserRouter([
 //   {
@@ -33,14 +34,12 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
       <Route path='' element={<Home />} />
-      <Route path='/about' element={<About />} />
+      <Route path='/about' element={<About />}>
+        <Route path='aboutmore' element={<Aboutmore />} />
+      </Route>
       <Route path='/contact' element={<Contact />} />
       <Route path='user/:id' element={<User />} />
-      <Route
-        path='github'
-        element={<Github />}
-        loader={githubInfoLoader}
-      />
+      <Route path='github' element={<Github />} loader={githubInfoLoader} />
     </Route>
   )
 )
